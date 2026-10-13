@@ -13,6 +13,16 @@ import { arSettings } from './ar_settings'
 import { defineLocale, type TranslationOverrides } from './define-locale'
 
 export const arOverrides = {
+  connectors: {
+    directory: {
+      suggested: 'مقترحة',
+      allApps: 'كل التطبيقات',
+      receiptConnected: apps => `متصلة: ${apps}`,
+      receiptNone: 'لم يتم ربط تطبيقات جديدة',
+      receiptSaid: 'تمت الإجابة في الدردشة',
+      receiptTimedOut: 'أُغلقت بعد 5 دقائق'
+    }
+  },
   sharedMetrics: arCommon.sharedMetrics,
   firstRun: arFirstRun,
   externalOpenFailed: arChrome.externalOpenFailed,

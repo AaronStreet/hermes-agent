@@ -14,6 +14,16 @@ import { zhHantFirstRun } from './zh-hant_first_run'
 import { zhHantSettings } from './zh-hant_settings'
 
 export const zhHantOverrides = {
+  connectors: {
+    directory: {
+      suggested: '推薦',
+      allApps: '全部應用程式',
+      receiptConnected: apps => `已連接：${apps}`,
+      receiptNone: '未連接新的應用程式',
+      receiptSaid: '已在聊天中回覆',
+      receiptTimedOut: '5 分鐘後已關閉'
+    }
+  },
   skillDeepLink: {
     installTitle: (name: string) => `安裝「${name}」？`,
     installDescription: '此技能將於新的工作階段中可用。請僅安裝可信來源的內容。',
