@@ -33513,6 +33513,18 @@
           "build": {
             "title": "Build",
             "type": "string"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Label"
           }
         },
         "required": [
@@ -33813,6 +33825,18 @@
             },
             "title": "Installed",
             "type": "array"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Label"
           }
         },
         "required": [
@@ -34245,6 +34269,18 @@
           "tour": {
             "title": "Tour",
             "type": "string"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Label"
           }
         },
         "required": [
