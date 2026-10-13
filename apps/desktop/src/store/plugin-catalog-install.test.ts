@@ -60,7 +60,13 @@ describe('requestPluginCatalogInstallFromDeepLink', () => {
 
   it('resolves against the live catalog feed by default and rejects unknown names', async () => {
     const feed = JSON.stringify([
-      { name: 'weather', repo: 'https://github.com/x/weather', sha: 'a'.repeat(40), subdir: '' }
+      {
+        name: 'weather',
+        repo: 'https://github.com/x/weather',
+        sha: 'a'.repeat(40),
+        subdir: '',
+        description: 'Shows the  weather\nfor a city. Disclosure — calls a public API.'
+      }
     ])
 
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response(feed, { status: 200 }))
@@ -73,7 +79,12 @@ describe('requestPluginCatalogInstallFromDeepLink', () => {
 
     await requestPluginCatalogInstallFromDeepLink('weather')
 
-    expect($pluginInstallRequest.get()).toMatchObject({ catalogName: 'weather', repo: 'https://github.com/x/weather' })
+    // The dialog's one line is the description's first sentence, never its disclosure.
+    expect($pluginInstallRequest.get()).toMatchObject({
+      catalogName: 'weather',
+      repo: 'https://github.com/x/weather',
+      summary: 'Shows the weather for a city.'
+    })
   })
 })
 
